@@ -114,8 +114,8 @@ function App() {
         } />
 
         {/* Global Redirect */}
-        <Route path="/" element={<Navigate to="/consumer" replace />} />
-        <Route path="*" element={<Navigate to="/consumer" replace />} />
+        <Route path="/" element={<Navigate to="/delivery" replace />} />
+        <Route path="*" element={<Navigate to="/delivery" replace />} />
       </Routes>
     </Router>
   );
