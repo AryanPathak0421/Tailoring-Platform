@@ -14,6 +14,14 @@ import Tasks from './module/delivery/pages/Tasks/Tasks';
 import DeliveryHistory from './module/delivery/pages/History/DeliveryHistory';
 import DeliveryProfile from './module/delivery/pages/Profile/DeliveryProfile';
 
+// Consumer Module Imports
+import ConsumerLayout from './module/consumer/layouts/ConsumerLayout';
+import LandingPage from './module/consumer/pages/Landing/LandingPage';
+import StitchingSelection from './module/consumer/pages/Stitching/StitchingSelection';
+import MeasurementSystem from './module/consumer/pages/Measurements/MeasurementSystem';
+import ConsumerDashboard from './module/consumer/pages/Dashboard/ConsumerDashboard';
+import CheckoutPage from './module/consumer/pages/Checkout/CheckoutPage';
+
 function App() {
   // Application Status for Demo:
   // 'landing': Show registration start
@@ -87,6 +95,17 @@ function App() {
           <Route path="profile" element={<DeliveryProfile />} />
         </Route>
 
+        {/* Consumer Panel Routes */}
+        <Route path="/consumer" element={<ConsumerLayout />}>
+          <Route index element={<LandingPage />} />
+          <Route path="stitching" element={<StitchingSelection />} />
+          <Route path="measurements" element={<MeasurementSystem />} />
+          <Route path="dashboard" element={<ConsumerDashboard />} />
+          <Route path="checkout" element={<CheckoutPage />} />
+          <Route path="shop" element={<div className="p-8 text-center"><h2 className="text-2xl font-bold">Readymade Store Coming Soon</h2></div>} />
+          <Route path="profile" element={<div className="p-8 text-center"><h2 className="text-2xl font-bold">Profile Page Coming Soon</h2></div>} />
+        </Route>
+
         {/* Development Helper: Toggle to Registration */}
         <Route path="/demo/register" element={
           <div className="p-20 text-center">
@@ -95,7 +114,8 @@ function App() {
         } />
 
         {/* Global Redirect */}
-        <Route path="*" element={<Navigate to="/tailor/dashboard" replace />} />
+        <Route path="/" element={<Navigate to="/consumer" replace />} />
+        <Route path="*" element={<Navigate to="/consumer" replace />} />
       </Routes>
     </Router>
   );
